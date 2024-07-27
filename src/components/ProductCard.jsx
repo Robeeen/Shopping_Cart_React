@@ -6,6 +6,7 @@ function ProductCard(props) {
   return (
     <Card>
         <Card.Body>
+            <Card.Img src={product.image}></Card.Img>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>${product.price}</Card.Text>
             <Button>Add To Cart</Button>

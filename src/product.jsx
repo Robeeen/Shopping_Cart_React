@@ -2,17 +2,20 @@ const products = [
     {
         id: '1',
         title: 'Coffee',
-        price: 5.23
+        price: 5.23,
+        image: 'https://dummyjson.com/image/200x100'
     },
     {
         id: '2',
         title: 'Sunglass',
-        price: 25.11
+        price: 25.11,
+        image: 'https://dummyjson.com/image/200x100'
     },
     {
         id: '3',
         title: 'Camera',
-        price: 45.58
+        price: 45.58,
+        image: 'https://dummyjson.com/image/200x100'
     }
 ]
 
