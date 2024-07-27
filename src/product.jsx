@@ -1,0 +1,19 @@
+const products = [
+    {
+        id: '1',
+        title: 'Coffee',
+        price: 5.23
+    },
+    {
+        id: '2',
+        title: 'Sunglass',
+        price: 25.11
+    },
+    {
+        id: '3',
+        title: 'Camera',
+        price: 45.58
+    }
+]
+
+export {products};
