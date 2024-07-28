@@ -59,6 +59,23 @@ export function CartProvider({children}){
         }
     }
 
+    const removeOneFromCart = (id) => {
+        const quantity = getProductQuantity(id);
+
+        if( quantity == 1 ){
+            deleteFromCart();
+        }else{
+            setCartProducts(
+                cartProducts.map(
+                    product =>
+                    product.id === id
+                    ? {...product, quantity: product.quantity - 1}
+                    : product
+                )
+            )
+        }
+    }
+
     const deleteFromCart = (id) => {
         // [] if an object meet a condition, add the objec to array
         // [product1, product2, product3]
@@ -71,6 +88,7 @@ export function CartProvider({children}){
                 })
         )
     }
+
 
 
     return (
