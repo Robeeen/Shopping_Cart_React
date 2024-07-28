@@ -24,8 +24,8 @@ export function CartProvider({children}){
         getTotalCost
     }
 
-    const getProductQuantity = () =>{
-        
+    const getProductQuantity = (id) =>{
+        const quantity = cartProducts.find(products => products)
     }
     return (
         <CartContext.Provider value={contextValue}>
