@@ -19,4 +19,10 @@ const products = [
     }
 ]
 
-export {products};
+function getProductData (id) {
+    let productData = products.find(product => product.id === id);
+    return productData;
+}
+
+export {products, getProductData};
+

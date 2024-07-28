@@ -1,5 +1,5 @@
 import { Children, createContext, useState } from "react";
-import { products } from "./product";
+import { products, getProductData } from "./product";
 
 
 const CartContext = createContext({
@@ -24,7 +24,7 @@ export function CartProvider({children}){
         getTotalCost
     }
 
-    const getProductQuantity = (id) =>{
+    function getProductQuantity (id){
         const quantity = cartProducts.find(product => product.id === id?.quantity);
 
         if( quantity === undefined ){
@@ -34,7 +34,7 @@ export function CartProvider({children}){
         return quantity;
     }
 
-    const addOneToCart = (id) => {
+    function addOneToCart(id) {
         const quantity = getProductQuantity(id);
 
         if( quantity === 0 ){ //if product is not in cart
@@ -59,7 +59,7 @@ export function CartProvider({children}){
         }
     }
 
-    const removeOneFromCart = (id) => {
+    function removeOneFromCart (id) {
         const quantity = getProductQuantity(id);
 
         if( quantity == 1 ){
@@ -76,7 +76,7 @@ export function CartProvider({children}){
         }
     }
 
-    const deleteFromCart = (id) => {
+    function deleteFromCart (id)  {
         // [] if an object meet a condition, add the objec to array
         // [product1, product2, product3]
         // [product1, product3]
@@ -89,7 +89,13 @@ export function CartProvider({children}){
         )
     }
 
-
+    function getTotalCost(){
+        const totalCost = 0;
+        cartProducts.map((cartItem) => {
+            const productData = getProductData(cartItem.id);
+            totalCost += (productData.price * cartItem.quantity);
+        });
+    }
 
     return (
         <CartContext.Provider value={contextValue}>
@@ -97,3 +103,5 @@ export function CartProvider({children}){
         </CartContext.Provider>
     )
 }
+
+export default CartProvider;

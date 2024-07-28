@@ -1,8 +1,13 @@
 import React from 'react'
 import { Card, Button, Form, Col, Row } from 'react-bootstrap'
+import { CartContext } from '../CartContext';
+import { useContext } from 'react';
 
 function ProductCard(props) {
  const product = props.product;
+ const cart = useContext(CartContext);
+ const productQuantity = cart.getProductQuantity(product.id);
+ 
   return (
     <Card>
         <Card.Body>
