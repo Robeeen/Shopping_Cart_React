@@ -2,7 +2,7 @@ import { Children, createContext, useState } from "react";
 import { products, getProductData } from "./product";
 
 
-const CartContext = createContext({
+export const CartContext = createContext({
     items: [],
     getProductQuantity: () => {},
     addOneToCart: () => {},
@@ -105,3 +105,4 @@ export function CartProvider({children}){
 }
 
 export default CartProvider;
+

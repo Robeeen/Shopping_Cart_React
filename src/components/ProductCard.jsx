@@ -7,14 +7,14 @@ function ProductCard(props) {
  const product = props.product;
  const cart = useContext(CartContext);
  const productQuantity = cart.getProductQuantity(product.id);
- 
+  console.log(cart.items);
   return (
     <Card>
         <Card.Body>
             <Card.Img src={product.image}></Card.Img>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>${product.price}</Card.Text>
-            <Button>Add To Cart</Button>
+            <Button variant='primary' onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
         </Card.Body>
     </Card>
   )
