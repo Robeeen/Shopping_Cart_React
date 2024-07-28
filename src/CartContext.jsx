@@ -49,9 +49,27 @@ export function CartProvider({children}){
             )
         }else{ //if product is in the cart
             setCartProducts(
-                
+                cartProducts.map(
+                    product =>
+                    product.id === id
+                    ? {...product, quantity: product.quantity + 1}
+                    : product
+                )
             )
         }
+    }
+
+    const deleteFromCart = (id) => {
+        // [] if an object meet a condition, add the objec to array
+        // [product1, product2, product3]
+        // [product1, product3]
+
+        setCartProducts(
+            cartProducts =>
+                cartProducts.filter(currentProduct => {
+                    return currentProduct.id != id;
+                })
+        )
     }
 
 
