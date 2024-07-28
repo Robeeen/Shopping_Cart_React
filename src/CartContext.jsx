@@ -25,8 +25,36 @@ export function CartProvider({children}){
     }
 
     const getProductQuantity = (id) =>{
-        const quantity = cartProducts.find(products => products)
+        const quantity = cartProducts.find(product => product.id === id?.quantity);
+
+        if( quantity === undefined ){
+            return 0;
+        }
+
+        return quantity;
     }
+
+    const addOneToCart = (id) => {
+        const quantity = getProductQuantity(id);
+
+        if( quantity === 0 ){ //if product is not in cart
+            setCartProducts(
+                [
+                    ...cartProducts,
+                    {
+                        id: id,
+                        quantity: 1
+                    }
+                ]
+            )
+        }else{ //if product is in the cart
+            setCartProducts(
+                
+            )
+        }
+    }
+
+
     return (
         <CartContext.Provider value={contextValue}>
             {children}
