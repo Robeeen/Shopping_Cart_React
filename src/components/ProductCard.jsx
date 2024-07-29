@@ -14,7 +14,18 @@ function ProductCard(props) {
             <Card.Img src={product.image}></Card.Img>
             <Card.Title>{product.title}</Card.Title>
             <Card.Text>${product.price}</Card.Text>
-            <Button variant='primary' onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
+            { productQuantity > 0 ?
+              <>
+                <Form>
+                  <Form.Label column="true" sm="6">In Cart: {productQuantity}</Form.Label>
+                    <Col sm="6">
+                      <Button sm="6" onClick={() => cart.addOneToCart(product.id)} className="mx-2">+</Button>
+                      <Button sm="6" onClick={() => cart.removeOneFromCart(product.id)} className="mx-2">-</Button>
+                    </Col>
+                </Form>
+              </>
+              :<Button variant="primary" onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
+            }            
         </Card.Body>
     </Card>
   )
