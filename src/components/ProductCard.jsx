@@ -1,5 +1,6 @@
 import React from 'react'
-import { Card, Button, Form, Col, Row } from 'react-bootstrap'
+import { Card, Button, Col, Row } from 'react-bootstrap'
+import Form from 'react-bootstrap/Form';
 import { CartContext } from '../CartContext';
 import { useContext } from 'react';
 
@@ -8,6 +9,7 @@ function ProductCard(props) {
  const cart = useContext(CartContext);
  const productQuantity = cart.getProductQuantity(product.id);
   console.log(cart.items);
+  console.log(productQuantity);
   return (
     <Card>
         <Card.Body>
@@ -16,13 +18,13 @@ function ProductCard(props) {
             <Card.Text>${product.price}</Card.Text>
             { productQuantity > 0 ?
               <>
-                <div as={Row}>
+                <Form as={Row}>
                   <Form.Label column="true" sm="6">In Cart: {productQuantity}</Form.Label>
                     <Col sm="6">
                       <Button sm="6" onClick={() => cart.addOneToCart(product.id)} className="mx-2">+</Button>
                       <Button sm="6" onClick={() => cart.removeOneFromCart(product.id)} className="mx-2">-</Button>
                     </Col>
-                </div>
+                </Form>
               </>
               :<Button variant="primary" onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
             }            

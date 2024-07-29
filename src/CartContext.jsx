@@ -15,17 +15,10 @@ export function CartProvider({children}){
 
     const [ cartProducts, setCartProducts ] = useState([]);
     
-    const contextValue = {
-        items: cartProducts,
-        getProductQuantity,
-        addOneToCart,
-        removeOneFromCart,
-        deleteFromCart,
-        getTotalCost
-    }
+    
 
-    function getProductQuantity (id){
-        const quantity = cartProducts.find(product => product.id === id?.quantity);
+    function getProductQuantity(id){
+        const quantity = cartProducts.find(product => product.id === id)?.quantity;
 
         if( quantity === undefined ){
             return 0;
@@ -90,11 +83,21 @@ export function CartProvider({children}){
     }
 
     function getTotalCost(){
-        const totalCost = 0;
+        let totalCost = 0;
         cartProducts.map((cartItem) => {
             const productData = getProductData(cartItem.id);
             totalCost += (productData.price * cartItem.quantity);
         });
+        return totalCost;
+    }
+
+    const contextValue = {
+        items: cartProducts,
+        getProductQuantity,
+        addOneToCart,
+        removeOneFromCart,
+        deleteFromCart,
+        getTotalCost
     }
 
     return (
