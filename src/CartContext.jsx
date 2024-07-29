@@ -1,5 +1,5 @@
 import { Children, createContext, useState } from "react";
-import { products, getProductData } from "./product";
+import { productArray, getProductData } from "./product";
 
 
 export const CartContext = createContext({

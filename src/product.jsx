@@ -1,4 +1,4 @@
-const products = [
+const productArray = [
     {
         id: '1',
         title: 'Coffee',
@@ -24,5 +24,5 @@ function getProductData (id) {
     return productData;
 }
 
-export {products, getProductData};
+export {productArray, getProductData};
 
