@@ -91,13 +91,16 @@ export function CartProvider({children}){
         return totalCost;
     }
 
+
+
     const contextValue = {
         items: cartProducts,
         getProductQuantity,
         addOneToCart,
         removeOneFromCart,
         deleteFromCart,
-        getTotalCost
+        getTotalCost,
+
     }
 
     return (

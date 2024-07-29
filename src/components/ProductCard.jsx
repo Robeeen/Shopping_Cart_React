@@ -9,7 +9,7 @@ function ProductCard(props) {
  const cart = useContext(CartContext);
  const productQuantity = cart.getProductQuantity(product.id);
   console.log(cart.items);
-  console.log(productQuantity);
+
   return (
     <Card>
         <Card.Body>
@@ -23,8 +23,10 @@ function ProductCard(props) {
                     <Col sm="6">
                       <Button sm="6" onClick={() => cart.addOneToCart(product.id)} className="mx-2">+</Button>
                       <Button sm="6" onClick={() => cart.removeOneFromCart(product.id)} className="mx-2">-</Button>
-                    </Col>
+                    </Col>              
+
                 </Form>
+                <Button variant="danger" onClick={() => cart.deleteFromCart(product.id)} className='my-2'>Clear Cart</Button>
               </>
               :<Button variant="primary" onClick={() => cart.addOneToCart(product.id)}>Add To Cart</Button>
             }            
