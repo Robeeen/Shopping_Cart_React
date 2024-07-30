@@ -100,7 +100,6 @@ export function CartProvider({children}){
         removeOneFromCart,
         deleteFromCart,
         getTotalCost,
-
     }
 
     return (
